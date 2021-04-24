@@ -1,19 +1,37 @@
 # Introduction
 
-Ongoing work.
+This project was started in the name of the international green day. Because Vulkan can save batteries.
 
 This projects provides a library to plot graphs with Vulkan, by using Flutter.
 
-# Other doc
+Ongoing work.
+
+# Licences
+
+See the LICENCE file and the licences folder
+
+# Status
+
+Trying to find a way to combine flutter with vulker from a native app, using FLutter for most of the app.
+
+# Why embed flutter and not embed native
+
+Because the doc says that there will always be performance problems embedding inside flutter.
+But we can embed flutter inside a native app.
+
+# Links
+
+Main link to embed flutter inside a native app:
+https://flutter.dev/docs/development/add-to-app
+
+Doc for embedding native views inside Flutter:
+https://flutter.dev/docs/development/platform-integration/platform-views?tab=ios-platform-views-swift-tab
 
 Not clear yet how to have good performance.
 Flutter has 4 threads, and the doc on hybrid composition says it is don in the platform thread.
 https://medium.com/flutterdevs/performance-monitoring-of-flutter-app-89698431473
 
-Doc for embedding native views:
-https://github.com/MagicPoulp/vulkan_charts_flutter
-
-Here lies teh code change in Android 10 (it seems)
+Here lies the code change in Android 10 (it seems)
 L259
 https://github.com/flutter/engine/blob/f27729e97b5a00c3a8d8d49edc7b998fa755b97a/shell/platform/android/io/flutter/embedding/android/FlutterImageView.java
 
