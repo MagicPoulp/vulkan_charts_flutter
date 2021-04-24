@@ -16,8 +16,16 @@ Trying to find a way to combine flutter with vulker from a native app, using FLu
 
 # Why embed flutter and not embed native
 
-Because the doc says that there will always be performance problems embedding inside flutter.
+Because the doc says that there will always be performance problems embedding inside flutter (see teh performance section i nthe Main link called add-to-app).
+
 But we can embed flutter inside a native app.
+
+# known bugs
+
+t-artikov found a critical bug with surface views on pure android.
+However, it seems that modern android and powerful devices do not have this problem.
+And the emulator is never really reliable. No Device on andorid 10 was found with a bug yet.
+https://github.com/flutter/flutter/issues/53989
 
 # Links
 
