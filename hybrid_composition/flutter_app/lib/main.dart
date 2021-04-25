@@ -80,16 +80,36 @@ class _MyHomePageState extends State<MyHomePage> {
             //height: mediaInfo.size.height,
             height: constraints.maxHeight,
             width: constraints.maxWidth,
-            child: SingleChildScrollView(
-              child: Container(
-                color: Colors.green,
-                child: Column(
-                children:
-                  List<Widget>.generate(100, (int index) => Text("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ")),
+            child:
+            new Stack(
+              //alignment:new Alignment(x, y)
+              children: <Widget>[
+                SingleChildScrollView(
+                  child: Container(
+                    color: Colors.green,
+                    child: Column(
+                    children:
+                      List<Widget>.generate(100, (int index) => Text("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ")),
+                    ),
+                  ),
                 ),
-              ),
+                new Positioned(
+                  left: 50,
+                  top: 100,
+                  height: 300,
+                  width: 200,
+                  //child: Container(
+                  //  color: Colors.blue,
+                  //),
+                  child: SizedBox(
+                    height: 300,
+                    width: 200,
+                    child: VulkanNativeView(),
+                  ),
+                )
+              ],
             ),
-              //VulkanNativeView(),
+            //https://stackoverflow.com/questions/49838021/how-do-i-stack-widgets-overlapping-each-other-in-flutter
           );
         },
       ),
