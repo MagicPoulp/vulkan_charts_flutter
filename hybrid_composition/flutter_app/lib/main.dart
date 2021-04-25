@@ -72,53 +72,46 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       //appBar: AppBar(
-     //   title: Text(widget.title),
-   //   ),
-      body: SafeArea(
-        left: true,
-        top: true,
-        right: true,
-        bottom: true,
-        minimum: const EdgeInsets.all(100.0),
-        child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-            return Container(
-              //height: mediaInfo.size.height,
-              height: constraints.maxHeight,
-              width: constraints.maxWidth,
-              child: SingleChildScrollView(
-                child: new Stack(
+      //  title: Text(widget.title),
+      //),
+      body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Container(
+            //height: mediaInfo.size.height,
+            height: constraints.maxHeight,
+            width: constraints.maxWidth,
+            child: SingleChildScrollView(
+              child: new Stack(
                 alignment: Alignment.topLeft,
-                  children: <Widget>[
-                    Container(
-                      color: Colors.green,
-                      child: Column(
+                children: <Widget>[
+                  Container(
+                    color: Colors.green,
+                    child: Column(
                       children:
-                        List<Widget>.generate(100, (int index) => Text("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ")),
-                      ),
+                      List<Widget>.generate(300, (int index) => Text("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ")),
                     ),
-                    new Positioned(
-                      left: 0,
-                      top: 100,
-                      //bottom: 0,
+                  ),
+                  new Positioned(
+                    left: 0,
+                    top: 100,
+                    //bottom: 0,
+                    height: 300,
+                    width: constraints.maxWidth,
+                    //child: Container(
+                    //  color: Colors.blue,
+                    //),
+                    child: SizedBox(
                       height: 300,
-                      width: constraints.maxWidth,
-                      //child: Container(
-                      //  color: Colors.blue,
-                      //),
-                      child: SizedBox(
-                        height: 300,
-                        width: 200,
-                        child: VulkanNativeView(),
-                      ),
+                      width: 200,
+                      child: VulkanNativeView(),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              //https://stackoverflow.com/questions/49838021/how-do-i-stack-widgets-overlapping-each-other-in-flutter
-            );
-          },
-        ),
+            ),
+            //https://stackoverflow.com/questions/49838021/how-do-i-stack-widgets-overlapping-each-other-in-flutter
+          );
+        },
       ),
     );
   }

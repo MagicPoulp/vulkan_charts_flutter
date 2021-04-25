@@ -16,6 +16,11 @@ Any one can suggest a PR. But we do not change the LICENSE. Please just add your
 
 # Status with hybrid composition
 
+Update: I need to analyse more teh crash when scrolling (see details below)-
+I will try ndk-stack on an unstripped version of libflutter.so, with my stacktrace.
+https://developer.android.com/ndk/guides/ndk-stack.html
+https://github.com/flutter/flutter/issues/76816
+
 I have runnable code with very nice results.
 
 Status:
