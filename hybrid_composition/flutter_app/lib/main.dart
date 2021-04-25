@@ -62,6 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final mediaInfo = MediaQuery.of(context);
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -70,19 +72,27 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: SizedBox(
-          width: 200.0,
-          height: 300.0,
-          child: VulkanNativeView(),
-        ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Container(
+            //height: mediaInfo.size.height,
+            height: constraints.maxHeight,
+            width: constraints.maxWidth,
+            child: SingleChildScrollView(
+              child: Container(
+                color: Colors.green,
+                child: Column(
+                children:
+                  List<Widget>.generate(100, (int index) => Text("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ")),
+                ),
+              ),
+            ),
+              //VulkanNativeView(),
+          );
+        },
+      ),
     );
   }
 }
