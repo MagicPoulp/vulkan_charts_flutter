@@ -4,28 +4,66 @@ This project was started in the name of the international green day. Because Vul
 
 This projects provides a library to plot graphs with Vulkan, by using Flutter.
 
-Ongoing work.
+Ongoing work. First focus on Android. But it should be able to work later on iOS.
 
 # Licences
 
-See the LICENCE file and the licences folder
+See the LICENCE file and the licences folder.
+
+# Contribution
+
+Any one can suggest a PR. But we do not change the LICENSE. Please just add your name in the other_contributors file. And make sure you configure github to hide your email in the commit.
 
 # Status
 
 Trying to find a way to combine flutter with vulker from a native app, using FLutter for most of the app.
 
+See the choice of technique below. I will try a FlutterView, and I will use the pixel shader discard for the transparency. DOing this at a low level probably removes lots of overhead.
+
 # Why embed flutter and not embed native
 
-Because the doc says that there will always be performance problems embedding inside flutter (see teh performance section i nthe Main link called add-to-app).
+Because the doc says that there will always be performance problems embedding inside flutter (see the performance section i nthe Main link called add-to-app). In short only android can use a texture that takes memory and graphics performance. Both iOs and Android have Hybrid Composition. But it make the Platform Thread of Flutter manage the rendering and it can stall the other things like OS and plugin messages.
 
 But we can embed flutter inside a native app.
 
-# known bugs
+# Choice of technique
+
+There are 3 ways, activity, fragment, view.
+https://flutter.dev/docs/development/add-to-app/android/project-setup
+
+Requirements:
+We want to have 2 superposed fullscreens.
+The app must be scrollable vertically.
+We should be able to put the SurfaceView with Vulkan on top, with transparent background.
+
+FlutterActivity
+t-artikov found a strange bug when tapping the activity. Moving back, the FlutterActivity is doubled.
+Splash screens (SplashScreenDrawable) are needed to transition between activities, even at startup. Quite ugly.
+To transfer data between activites, it is inelegant to have to use a global object such as the Application object. And putExtra only works for basic data at the start of an activity.
+Intuitively, it seems that activity are intended to decouple separate things both visually and in the data.
+
+FlutterFragment, a FragmentActivity
+There is no satisfying way to overlay a Fragment with the rest. It looks like a hack to have to use a dialog mode. There seems to be some startup work that takes time and that we have to wait for.
+It does not seem that a Fragment was made to be fullscreen with use of overlays.
+
+FlutterView
+Advanced, but seems very fined tuneable in the details.
+
+Isolated ideas:
+It seems we can put transparency on a pixel directly in the fragment shader using discard.
+https://stackoverflow.com/questions/49333647/vulkan-support-alpha-channel-for-sprites
+A SurfaceView has a function to put it on top, and has a transparency mode (but what if vulkan has put a color already that is not transparent?).
+To superpose views, we can use RelativeLayout, or we can also use a getOverlay() and set an overlay (exact superposition).
+
+# Known bugs
 
 t-artikov found a critical bug with surface views on pure android.
 However, it seems that modern android and powerful devices do not have this problem.
-And the emulator is never really reliable. No Device on andorid 10 was found with a bug yet.
+And the emulator is never really reliable. No Device on Android 10 was found with a bug yet.
 https://github.com/flutter/flutter/issues/53989
+https://github.com/t-artikov/flutter_transparent_surface_test
+https://github.com/t-artikov/surface-view-bug
+However, I do not agree that the SurfaceView bug is exactly the same as the FlutterActivity bug.
 
 # Links
 
