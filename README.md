@@ -16,9 +16,9 @@ Any one can suggest a PR. But we do not change the LICENSE. Please just add your
 
 # Status
 
-Trying to find a way to combine flutter with vulker from a native app, using FLutter for most of the app.
+Update. It would be much simpler to simply do a hybrid composition and try it, and optimize it.
 
-See the choice of technique below. I will try a FlutterView, and I will use the pixel shader discard for the transparency. Doing this at a low level probably removes lots of overhead. Main reason for using a FlutterView: to transfer data between the Flutter code and the SurfaceView. It is simpler and faster within the same activity.
+Trying to find a way to combine Flutter with vulker from a native app, using Flutter for most of the app.
 
 
 # Why embed flutter and not embed native
@@ -27,7 +27,7 @@ Because the doc says that there will always be performance problems embedding in
 
 But we can embed flutter inside a native app.
 
-# Choice of technique
+# Ideas for embedding flutter inside a native app
 
 Main reason for using a FlutterView: to transfer data between the Flutter code and the SurfaceView. It is simpler and faster wihtin the same activity.
 
