@@ -107,4 +107,6 @@ https://github.com/t-artikov/flutter_two_surfaces_test
 Doc for loading Vulkan from Android or Swift
 https://github.com/MagicPoulp/display_vulkan_from_kotlin_or_swift/blob/master/README.md
 
+Code sample fromthe official doc for loading a FlutterView on Android
+https://github.com/flutter/samples/tree/master/add_to_app/android_view
 
