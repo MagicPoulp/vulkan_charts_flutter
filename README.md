@@ -18,7 +18,8 @@ Any one can suggest a PR. But we do not change the LICENSE. Please just add your
 
 Trying to find a way to combine flutter with vulker from a native app, using FLutter for most of the app.
 
-See the choice of technique below. I will try a FlutterView, and I will use the pixel shader discard for the transparency. DOing this at a low level probably removes lots of overhead.
+See the choice of technique below. I will try a FlutterView, and I will use the pixel shader discard for the transparency. Doing this at a low level probably removes lots of overhead. Main reason for using a FlutterView: to transfer data between the Flutter code and the SurfaceView. It is simpler and faster within the same activity.
+
 
 # Why embed flutter and not embed native
 
@@ -27,6 +28,8 @@ Because the doc says that there will always be performance problems embedding in
 But we can embed flutter inside a native app.
 
 # Choice of technique
+
+Main reason for using a FlutterView: to transfer data between the Flutter code and the SurfaceView. It is simpler and faster wihtin the same activity.
 
 There are 3 ways, activity, fragment, view.
 https://flutter.dev/docs/development/add-to-app/android/project-setup
@@ -48,12 +51,29 @@ It does not seem that a Fragment was made to be fullscreen with use of overlays.
 
 FlutterView
 Advanced, but seems very fined tuneable in the details.
+It seems to me clear taht the transfer of data will be much more efficient and simpler within the same activity.
 
 Isolated ideas:
 It seems we can put transparency on a pixel directly in the fragment shader using discard.
 https://stackoverflow.com/questions/49333647/vulkan-support-alpha-channel-for-sprites
 A SurfaceView has a function to put it on top, and has a transparency mode (but what if vulkan has put a color already that is not transparent?).
 To superpose views, we can use RelativeLayout, or we can also use a getOverlay() and set an overlay (exact superposition).
+
+About SurfaceView
+
+A SurfaceView has fundamental bug. But it does not happen each time and there seems to exist a workaround.
+https://issuetracker.google.com/issues/72624889
+https://github.com/t-artikov/surface-view-bug
+
+One guy has a workaround in the issue tracker
+"To workaround, you can try disabling the next transition, e.g., overridePendingTransition(0,0) when the next Activity starts. Worked for me."
+
+I found that a SurfaceView has fundamental limitations. Maybe that is why the show other apps effect is not synched.
+You could try a texture. However, a texture is said to have lower performance.
+
+It has limitations in how it is synchronized
+https://flutter.dev/docs/development/add-to-app/android/add-flutter-fragment
+"FlutterFragment can either use a SurfaceView to render its Flutter content, or it can use a TextureView. The default is SurfaceView, which is significantly better for performance than TextureView. However, SurfaceView can’t be interleaved in the middle of an Android View hierarchy. A SurfaceView must either be the bottommost View in the hierarchy, or the topmost View in the hierarchy. Additionally, on Android versions before Android N, SurfaceViews can’t be animated because their layout and rendering aren’t synchronized with the rest of the View hierarchy. If either of these use cases are requirements for your app, then you need to use TextureView instead of SurfaceView. Select a TextureView by building a FlutterFragment with a texture RenderMode:"
 
 # Known bugs
 
