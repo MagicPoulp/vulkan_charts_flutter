@@ -14,6 +14,27 @@ See the LICENCE file and the licences folder.
 
 Any one can suggest a PR. But we do not change the LICENSE. Please just add your name in the other_contributors file. And make sure you configure github to hide your email in the commit.
 
+# Status with hybrid composition
+
+I have runnable code with very nice results.
+
+Status:
+Maybe pure native could have better performance. But I want to try first using Hybrid Composition in 100% flutter. It seems much simpler. And the performance on the platform thread is hard to evaluation. It should not harm if one does not use plugins or needs to interact too much with the OS.
+
+I can now overlay a flutter scrollView with a native view and scroll the 2 at the same time. That is what I want to have 2 screens exactly superposed, and scrolled together.
+
+For transparency, I just remove the background color on the native activity. But I keep it for now for debugging.
+
+The result is here:
+https://github.com/MagicPoulp/vulkan_charts_flutter/tree/master/hybrid_composition/flutter_app
+
+However, if the native view reaches the outside of the screen, like when scrolling, it will crash.
+If I can solve this, then my mixing is finished 100%. And I will work on the passing of data, and display of graphs. I just have to manage the coordinates from the flutter app, and the pass the data to draw on the overlay view.
+
+However, it is very hard for me to find a solution. Maybe I should cut that view or re-dimension it so it does not reaches the outside. Hard to tell.
+
+How to not crash when going out of screen with the native view?
+
 # Status
 
 Trying to find a way to combine Flutter with vulkan from a native app, using Flutter for most of the app.
