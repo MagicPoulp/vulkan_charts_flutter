@@ -41,7 +41,7 @@ We should be able to put the SurfaceView with Vulkan on top, with transparent ba
 
 FlutterActivity
 t-artikov found a strange bug when tapping the activity. Moving back, the FlutterActivity is doubled.
-Splash screens (SplashScreenDrawable) are needed to transition between activities, even at startup. Quite ugly.
+Maybe there is a blank screen when switching between activities (unkown).
 To transfer data between activites, it is inelegant to have to use a global object such as the Application object. And putExtra only works for basic data at the start of an activity.
 Intuitively, it seems that activity are intended to decouple separate things both visually and in the data.
 
@@ -85,10 +85,19 @@ https://github.com/t-artikov/flutter_transparent_surface_test
 https://github.com/t-artikov/surface-view-bug
 However, I do not agree that the SurfaceView bug is exactly the same as the FlutterActivity bug. Because we have FlutterActivity extends Activity in the Java code.
 
-# Links
+# Main links
 
-Main link to embed flutter inside a native app:
+To embed flutter inside a native app:
 https://flutter.dev/docs/development/add-to-app
+
+Doc to use a FlutterView
+https://flutter.dev/docs/development/add-to-app
+
+Code sample to use a FlutterView
+https://github.com/flutter/samples.git
+add_to_app/fullscreen/android_fullscreen
+
+# Other links
 
 Doc for embedding native views inside Flutter:
 https://flutter.dev/docs/development/platform-integration/platform-views?tab=ios-platform-views-swift-tab

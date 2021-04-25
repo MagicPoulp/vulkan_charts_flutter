@@ -50,5 +50,10 @@ app.*.map.json
 build/
 .cxx/
 temp/
-fftw_library*/
 *.wav
+
+# gradle
+gradle/
+gradlew
+gradlew.bat
+local.properties
