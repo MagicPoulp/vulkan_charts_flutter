@@ -30,7 +30,7 @@ class _VulkanNativeViewState extends State<VulkanNativeView> {
           surfaceFactory:
               (BuildContext context, PlatformViewController controller) {
             return AndroidViewSurface(
-              controller: controller,
+              controller: controller as AndroidViewController,
               gestureRecognizers: const <Factory<OneSequenceGestureRecognizer>>{},
               hitTestBehavior: PlatformViewHitTestBehavior.opaque,
             );
