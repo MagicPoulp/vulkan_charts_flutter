@@ -8,6 +8,6 @@ class MainActivity : FlutterActivity() {
         flutterEngine
                 .platformViewsController
                 .registry
-                .registerViewFactory("hybrid-view-type", NativeViewFactory())
+                .registerViewFactory("hybrid", NativeViewFactory())
     }
 }

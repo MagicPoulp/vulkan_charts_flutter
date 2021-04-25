@@ -123,6 +123,9 @@ https://github.com/MagicPoulp/display_vulkan_from_kotlin_or_swift/blob/master/RE
 Code sample fromthe official doc for loading a FlutterView on Android
 https://github.com/flutter/samples/tree/master/add_to_app/android_view
 
+catalog of all layout widgets for Flutter:
+https://flutter.dev/docs/development/ui/widgets/layout
+
 # How to run espresso tests
 
 cd fullscreen/android_fullscreen
