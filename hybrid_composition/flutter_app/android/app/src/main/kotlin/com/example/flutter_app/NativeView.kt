@@ -17,7 +17,9 @@ internal class NativeView(context: Context, id: Int, creationParams: Map<String?
 
     init {
         textView = TextView(context)
-        textView.textSize = 72f
+        textView.textSize = 14f
+        // comment out the background color in the final state
+        // Having no background color causes a nice superposition with transparent background
         textView.setBackgroundColor(Color.rgb(255, 255, 255))
         textView.text = "Rendered on a native Android view (id: $id)"
     }

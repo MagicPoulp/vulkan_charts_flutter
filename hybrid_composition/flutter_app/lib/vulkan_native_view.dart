@@ -21,7 +21,7 @@ class _VulkanNativeViewState extends State<VulkanNativeView> {
   @override
   Widget build(BuildContext context) {
     // This is used in the platform side to register the view.
-    final String viewType = 'hybrid-view-type';
+    final String viewType = 'hybrid';
     // Pass parameters to the platform side.
     final Map<String, dynamic> creationParams = <String, dynamic>{};
 
