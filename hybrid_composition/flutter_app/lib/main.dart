@@ -71,9 +71,9 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      //appBar: AppBar(
+      //  title: Text(widget.title),
+      //),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           return Container(
@@ -82,18 +82,19 @@ class _MyHomePageState extends State<MyHomePage> {
             width: constraints.maxWidth,
             child: SingleChildScrollView(
               child: new Stack(
-              //alignment:new Alignment(x, y)
+                alignment: Alignment.topLeft,
                 children: <Widget>[
                   Container(
                     color: Colors.green,
                     child: Column(
-                    children:
-                      List<Widget>.generate(100, (int index) => Text("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ")),
+                      children:
+                      List<Widget>.generate(300, (int index) => Text("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ")),
                     ),
                   ),
                   new Positioned(
                     left: 0,
                     top: 100,
+                    //bottom: 0,
                     height: 300,
                     width: constraints.maxWidth,
                     //child: Container(
