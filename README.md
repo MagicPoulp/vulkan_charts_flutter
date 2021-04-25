@@ -63,7 +63,7 @@ And the emulator is never really reliable. No Device on Android 10 was found wit
 https://github.com/flutter/flutter/issues/53989
 https://github.com/t-artikov/flutter_transparent_surface_test
 https://github.com/t-artikov/surface-view-bug
-However, I do not agree that the SurfaceView bug is exactly the same as the FlutterActivity bug.
+However, I do not agree that the SurfaceView bug is exactly the same as the FlutterActivity bug. Because we have FlutterActivity extends Activity in the Java code.
 
 # Links
 
