@@ -16,10 +16,14 @@ Any one can suggest a PR. But we do not change the LICENSE. Please just add your
 
 # Status
 
-Update. It would be much simpler to simply do a hybrid composition and try it, and optimize it.
+Trying to find a way to combine Flutter with vulkan from a native app, using Flutter for most of the app.
 
-Trying to find a way to combine Flutter with vulker from a native app, using Flutter for most of the app.
+I have now 3 samples that I updated to latest SDK/Flutter etc.
+The hybrid composition crashes on device. Very strange I just used the documentation.
+The flutter full screen has just working code sample. Nothing more jsut the sample from the doc.
+The flutterView is under work. But the flutter view probably is the best for android.
 
+It would be much simpler to simply do a hybrid composition and try it, and optimize it.
 
 # Why embed flutter and not embed native
 
