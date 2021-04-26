@@ -16,10 +16,11 @@ Any one can suggest a PR. But we do not change the LICENSE. Please just add your
 
 # Status with hybrid composition
 
-Update: I need to analyse more teh crash when scrolling (see details below)-
+Update: I need to analyse more the crash when scrolling (see details below)-
 I will try ndk-stack on an unstripped version of libflutter.so, with my stacktrace.
 https://developer.android.com/ndk/guides/ndk-stack.html
 https://github.com/flutter/flutter/issues/76816
+https://github.com/flutter/flutter/wiki/Compiling-the-engine#compiling-for-android-from-macos-or-linux
 
 I have runnable code with very nice results.
 
@@ -156,3 +157,17 @@ https://flutter.dev/docs/development/ui/widgets/layout
 
 cd fullscreen/android_fullscreen
 `pwd`/../flutter_module/.android/gradlew app:connectedAndroidTest -Ptarget=`pwd`/../flutter_module/test_driver/example.dart
+
+# How to build the flutter engine
+
+Follow the first link:
+https://github.com/flutter/flutter/wiki/Setting-up-the-Engine-development-environment
+https://developer.android.com/ndk/guides/ndk-stack.html
+https://github.com/flutter/flutter/issues/76816
+https://github.com/flutter/flutter/wiki/Compiling-the-engine#compiling-for-android-from-macos-or-linux
+
+## On debian 10
+
+git clone https://chromium.googlesource.com/chromium/tools/depot_tools
+make a build_engine folder with the .gclient with a forked repo as url
+~/tmp/depot_tools/gclient sync
